@@ -1,14 +1,54 @@
 import logo from './logo.svg';
 import './App.css';
+import React, { useState, useEffect } from 'react';
+import StatsBox from './components/stats-box.js';
 
 function App() {
+  const [cases, setCases] = useState(0);
+  const [deaths, setDeaths] = useState(0);
+  const [tests, setTests] = useState(0);
+  const [covidData, setCovidData] = useState({});
+
   const fetchFromApi = async () => {
     const data = await fetch('https://api.covidtracking.com/v1/us/daily.json');
-    const jsonData = data.json();
+    const jsonData = await data.json();
     return jsonData;
   };
 
-  console.log(fetchFromApi());
+  const getData = async () => {
+    fetchFromApi().then((jsonData) => {
+      // let dateString = jsonData[0].date.toString();
+      // let year = dateString.slice(0, 4);
+      // let month = dateString.slice(4, 6);
+      // let day = dateString.slice(6, 8);
+      // let completeDate = `${month}-${day}-${year}`;
+      // const selectedDate = new Date(completeDate);
+      // console.log(selectedDate);
+      console.log(jsonData);
+      const date = new Date();
+      const dateString = `${date.getFullYear()}${(
+        '0' +
+        (date.getMonth() + 1)
+      ).slice(-2)}${('0' + date.getDay()).slice(-2)}`;
+
+      jsonData.map((data) => {
+        if (data.date == dateString) {
+          setCovidData({
+            cases: data.positive,
+            casesInc: data.positiveIncrease,
+            deaths: data.death,
+            deathsInc: data.deathIncrease,
+            tests: data.totalTestResults,
+            testsInc: data.totalTestResultsIncrease,
+          });
+        }
+      });
+    });
+  };
+
+  useEffect(() => {
+    getData();
+  }, []);
 
   return (
     <div className="App">
@@ -29,18 +69,21 @@ function App() {
               </svg>
             </div>
             <div className="header-stats">
-              <div className="stats-box">
-                <span className="number">30000</span>
-                <span className="label">Cases</span>
-              </div>
-              <div className="stats-box">
-                <span className="number">30000</span>
-                <span className="label">Deaths</span>
-              </div>
-              <div className="stats-box">
-                <span className="number">30000</span>
-                <span className="label">Tests</span>
-              </div>
+              <StatsBox
+                label="Cases"
+                number={covidData.cases}
+                inc={covidData.casesInc}
+              />
+              <StatsBox
+                label="Deaths"
+                number={covidData.deaths}
+                inc={covidData.deathsInc}
+              />
+              <StatsBox
+                label="Tests"
+                number={covidData.tests}
+                inc={covidData.testsInc}
+              />
             </div>
           </div>
         </section>
