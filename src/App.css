@@ -1,6 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-size: 62.5%;
+}
+
+.header {
+  background-color: rgb(23, 23, 23);
+  color: rgb(77, 180, 218);
+  padding: 3rem 4rem 15rem 4rem;
+}
+
+.header-data {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+}
+
+.header-data h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.header-date {
+  color: rgb(200, 225, 255);
+  margin-bottom: 1.5rem;
+}
+
+.header-date svg {
+  width: 1rem;
+  fill: rgb(200, 225, 255);
+  top: 0.3em;
+  position: relative;
+}
+
+.header-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(100px, 150px));
+  gap: 0.75rem;
+  justify-content: center;
+}
+
+.stats-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: rgb(46, 46, 49);
+  border-radius: 0.25rem;
+  padding: 1rem;
+}
+
+.stats-box .number {
+  color: white;
+  font-size: 1.5rem;
+}
+
+.stats-box .label {
+  text-transform: uppercase;
+  letter-spacing: 0.15rem;
+  font-size: 0.75rem;
+  color: rgba(200, 225, 255, 0.8);
+  padding-top: 0.5rem;
+}
+
+.body {
+  background: rgb(221, 221, 236);
+  padding: 3rem 4rem 45rem 4rem;
 }
