@@ -83,7 +83,7 @@
   color: rgb(6, 192, 37);
   visibility: hidden;
   font-size: 0.1px;
-  transition: font-size 0.25s ease;
+  transition: font-size 0.2s ease;
 }
 
 .stats-box:hover {
@@ -99,4 +99,22 @@
 .body {
   background: rgb(221, 221, 236);
   padding: 3rem 4rem 45rem 4rem;
+}
+
+.calendar {
+  display: none;
+  position: absolute;
+  top: 8rem;
+}
+
+.date-moment {
+  user-select: none;
+}
+
+.date-moment:hover {
+  cursor: pointer;
+}
+
+.date-moment:hover .calendar {
+  visibility: visible;
 }
