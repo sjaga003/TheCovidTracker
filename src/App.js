@@ -25,7 +25,7 @@ function App() {
 
   const getData = async () => {
     fetchFromApi().then((jsonData) => {
-      console.log(jsonData);
+      // console.log(jsonData);
       const dateVal = new Date(startDate);
       const dateString = `${dateVal.getFullYear()}${(
         '0' +
@@ -78,7 +78,7 @@ function App() {
 
   const clickDate = () => {
     if (calendarVisible === 'none') {
-      console.log(calendarVisible);
+      // console.log(calendarVisible);
       setCalendarVisible('block');
     } else {
       setCalendarVisible('none');
@@ -126,7 +126,7 @@ function App() {
           ticks: {
             display: true,
             autoSkip: true,
-            maxTicksLimit: 4,
+            maxTicksLimit: 5,
             source: 'data',
           },
         },
@@ -134,7 +134,7 @@ function App() {
     },
   };
 
-  console.log(covidData.casesIncValues);
+  // console.log(covidData.casesIncValues);
 
   return (
     <div className="App">

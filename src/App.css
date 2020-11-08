@@ -18,7 +18,7 @@
   background-color: var(--header-bg);
   color: var(--accent-color);
   padding: 3rem 4rem 15rem 4rem;
-  height: 40vh;
+  height: 25rem;
 }
 
 .header-data {
