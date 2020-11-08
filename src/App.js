@@ -1,11 +1,10 @@
-import logo from './logo.svg';
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import StatsBox from './components/stats-box.js';
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
 import Moment from 'react-moment';
-import chart, { Line } from 'react-chartjs-2';
+import { Line } from 'react-chartjs-2';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -16,6 +15,7 @@ function App() {
     return today.setDate(today.getDate() - 1);
   });
   const [calendarVisible, setCalendarVisible] = useState('none');
+  const node = useRef();
 
   const fetchFromApi = async () => {
     const data = await fetch('https://api.covidtracking.com/v1/us/daily.json');
@@ -30,7 +30,7 @@ function App() {
       const dateString = `${dateVal.getFullYear()}${(
         '0' +
         (dateVal.getMonth() + 1)
-      ).slice(-2)}${('0' + dateVal.getDay()).slice(-2)}`;
+      ).slice(-2)}${('0' + dateVal.getDate()).slice(-2)}`;
 
       let obj = {
         casesIncValues: [],
@@ -85,8 +85,23 @@ function App() {
     }
   };
 
+  const handleClick = (e) => {
+    if (node.current.contains(e.target)) {
+      // inside click
+      return;
+    }
+    // outside click
+    setCalendarVisible('none');
+  };
+
   useEffect(() => {
     getData();
+    // add when mounted
+    document.addEventListener('mousedown', handleClick);
+    // return function to be called when unmounted
+    return () => {
+      document.removeEventListener('mousedown', handleClick);
+    };
   }, []);
 
   useEffect(() => {
@@ -144,7 +159,11 @@ function App() {
           <div className="header-data">
             <h3>United States</h3>
             <div className="header-date">
-              <div className="calendar" style={{ display: calendarVisible }}>
+              <div
+                ref={node}
+                className="calendar"
+                style={{ display: calendarVisible }}
+              >
                 {' '}
                 <DatePicker
                   selected={startDate}
