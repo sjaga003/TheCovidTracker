@@ -14,6 +14,19 @@
   --stats-bg: rgb(46, 46, 49);
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
+
+body {
+  background: rgb(234, 234, 241);
+}
+
+main {
+  width: 100%;
+}
+
 .header {
   background-color: var(--header-bg);
   color: var(--accent-color);
@@ -182,4 +195,23 @@
 
 .footer-github a:hover {
   color: var(--accent-color);
+}
+
+@media only screen and (max-width: 900px) {
+  .chart-area {
+    width: 35rem;
+    height: 25rem;
+    padding: 1rem;
+  }
+  .chart-title {
+    margin: 0;
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .chart-area {
+    width: 25rem;
+    height: 15rem;
+    padding: 1rem;
+  }
 }
