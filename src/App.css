@@ -154,3 +154,32 @@
   margin-bottom: 2rem;
   width: 25rem;
 }
+
+.footer {
+  background: rgb(234, 234, 241);
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.footer svg {
+  width: 1.5rem;
+  top: 0.3em;
+  position: relative;
+}
+
+.footer-github {
+  padding-top: 1rem;
+  background: rgb(234, 234, 241);
+}
+
+.footer-github a {
+  color: rgb(42, 122, 151);
+}
+
+.footer-github a:hover {
+  color: var(--accent-color);
+}
