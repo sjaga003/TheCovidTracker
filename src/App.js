@@ -3,7 +3,9 @@ import './App.css';
 import React, { useState, useEffect } from 'react';
 import StatsBox from './components/stats-box.js';
 import DatePicker from 'react-datepicker';
+import moment from 'moment';
 import Moment from 'react-moment';
+import chart, { Line } from 'react-chartjs-2';
 
 import 'react-datepicker/dist/react-datepicker.css';
 
@@ -23,13 +25,6 @@ function App() {
 
   const getData = async () => {
     fetchFromApi().then((jsonData) => {
-      // let dateString = jsonData[0].date.toString();
-      // let year = dateString.slice(0, 4);
-      // let month = dateString.slice(4, 6);
-      // let day = dateString.slice(6, 8);
-      // let completeDate = `${month}-${day}-${year}`;
-      // const selectedDate = new Date(completeDate);
-      // console.log(selectedDate);
       console.log(jsonData);
       const dateVal = new Date(startDate);
       const dateString = `${dateVal.getFullYear()}${(
@@ -37,18 +32,37 @@ function App() {
         (dateVal.getMonth() + 1)
       ).slice(-2)}${('0' + dateVal.getDay()).slice(-2)}`;
 
+      let obj = {
+        casesIncValues: [],
+        dates: [],
+      };
       jsonData.map((data) => {
         if (data.date == dateString) {
-          setCovidData({
-            cases: data.positive,
-            casesInc: data.positiveIncrease,
-            deaths: data.death,
-            deathsInc: data.deathIncrease,
-            tests: data.totalTestResults,
-            testsInc: data.totalTestResultsIncrease,
-          });
+          obj.cases = data.positive;
+          obj.casesInc = data.positiveIncrease;
+          obj.deaths = data.death;
+          obj.deathsInc = data.deathIncrease;
+          obj.tests = data.totalTestResults;
+          obj.testsInc = data.totalTestResultsIncrease;
+        }
+        if (data.positiveIncrease > 0 && data.date <= dateString) {
+          obj.casesIncValues.push(data.positiveIncrease);
+
+          let dateString = data.date.toString();
+          let year = dateString.slice(0, 4);
+          let month = dateString.slice(4, 6);
+          let day = dateString.slice(6, 8);
+          let completeDate = `${month}-${day}-${year}`;
+          let momentDate = moment().format(completeDate, 'MMMM');
+          obj.dates.push(momentDate);
         }
       });
+      obj.casesIncValues = obj.casesIncValues
+        .reverse()
+        .filter((val) => val > 0);
+      obj.dates = obj.dates.reverse();
+
+      setCovidData(obj);
     });
   };
 
@@ -78,6 +92,49 @@ function App() {
   useEffect(() => {
     getData();
   }, [startDate]);
+
+  const data = {
+    labels: covidData.dates,
+    datasets: [
+      {
+        label: 'Number of Cases',
+        fill: true,
+        lineTension: 0.1,
+        backgroundColor: 'rgba(75,192,192,0.4)',
+        borderColor: 'rgba(75,192,192,1)',
+        borderDash: [],
+        borderDashOffset: 0.0,
+        borderJoinStyle: 'miter',
+        pointBorderColor: 'rgba(75,192,192,1)',
+        pointBackgroundColor: 'rgba(75,192,192,1)',
+        pointBorderWidth: 1,
+        pointHoverRadius: 5,
+        pointHoverBackgroundColor: 'rgba(75,192,192,1)',
+        pointHoverBorderColor: 'rgba(220,220,220,1)',
+        pointHoverBorderWidth: 2,
+        pointRadius: 0,
+        pointHitRadius: 10,
+        data: covidData.casesIncValues,
+      },
+    ],
+  };
+
+  const options = {
+    scales: {
+      xAxes: [
+        {
+          ticks: {
+            display: true,
+            autoSkip: true,
+            maxTicksLimit: 4,
+            source: 'data',
+          },
+        },
+      ],
+    },
+  };
+
+  console.log(covidData.casesIncValues);
 
   return (
     <div className="App">
@@ -131,7 +188,12 @@ function App() {
             </div>
           </div>
         </section>
-        <section className="body">Hello</section>
+        <section className="body">
+          <div className="chart-area">
+            <h1 className="chart-title">Daily Cases</h1>
+            <Line data={data} options={options} />
+          </div>
+        </section>
         <section className="footer"></section>
       </main>
     </div>

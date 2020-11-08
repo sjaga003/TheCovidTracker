@@ -4,6 +4,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
 }
 
 :root {
@@ -17,7 +18,7 @@
   background-color: var(--header-bg);
   color: var(--accent-color);
   padding: 3rem 4rem 15rem 4rem;
-  height: 70vh;
+  height: 40vh;
 }
 
 .header-data {
@@ -26,11 +27,10 @@
   align-items: center;
   flex-direction: column;
   text-align: center;
-  font-family: 'Inter', sans-serif;
 }
 
 .header-data h3 {
-  font-size: 1.5rem;
+  font-size: 3rem;
   margin-bottom: 1.2rem;
 }
 
@@ -96,15 +96,11 @@
   color: rgb(6, 192, 37);
 }
 
-.body {
-  background: rgb(221, 221, 236);
-  padding: 3rem 4rem 45rem 4rem;
-}
-
 .calendar {
   display: none;
   position: absolute;
   top: 8rem;
+  z-index: 3;
 }
 
 .date-moment {
@@ -122,4 +118,37 @@
 
 .date-moment:hover .calendar {
   visibility: visible;
+}
+
+.body {
+  background: rgb(221, 221, 236);
+  padding: 3rem 4rem 5rem 4rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+}
+
+.chart-area {
+  display: flex;
+  width: 50rem;
+  height: 40rem;
+  color: white;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 2, 0.2) 0px 5px 30px -15px;
+  margin-top: -8rem !important;
+  background: white;
+  justify-content: flex-start;
+  flex-direction: column;
+  text-align: center;
+  padding: 3rem;
+}
+
+.chart-title {
+  color: var(--header-bg);
+  text-align: left;
+  border-bottom: 2px var(--header-bg);
+  margin-bottom: 2rem;
+  width: 25rem;
 }
