@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/sjaga003.github.io/cutiehack2020/static/css/main.544f1867.chunk.css",
+    "main.js": "/sjaga003.github.io/cutiehack2020/static/js/main.438776c5.chunk.js",
+    "main.js.map": "/sjaga003.github.io/cutiehack2020/static/js/main.438776c5.chunk.js.map",
+    "runtime-main.js": "/sjaga003.github.io/cutiehack2020/static/js/runtime-main.7be6d022.js",
+    "runtime-main.js.map": "/sjaga003.github.io/cutiehack2020/static/js/runtime-main.7be6d022.js.map",
+    "static/css/2.95456d05.chunk.css": "/sjaga003.github.io/cutiehack2020/static/css/2.95456d05.chunk.css",
+    "static/js/2.2092b8d1.chunk.js": "/sjaga003.github.io/cutiehack2020/static/js/2.2092b8d1.chunk.js",
+    "static/js/2.2092b8d1.chunk.js.map": "/sjaga003.github.io/cutiehack2020/static/js/2.2092b8d1.chunk.js.map",
+    "static/js/3.3f254129.chunk.js": "/sjaga003.github.io/cutiehack2020/static/js/3.3f254129.chunk.js",
+    "static/js/3.3f254129.chunk.js.map": "/sjaga003.github.io/cutiehack2020/static/js/3.3f254129.chunk.js.map",
+    "index.html": "/sjaga003.github.io/cutiehack2020/index.html",
+    "static/css/2.95456d05.chunk.css.map": "/sjaga003.github.io/cutiehack2020/static/css/2.95456d05.chunk.css.map",
+    "static/css/main.544f1867.chunk.css.map": "/sjaga003.github.io/cutiehack2020/static/css/main.544f1867.chunk.css.map",
+    "static/js/2.2092b8d1.chunk.js.LICENSE.txt": "/sjaga003.github.io/cutiehack2020/static/js/2.2092b8d1.chunk.js.LICENSE.txt",
+    "static/media/logo.103b5fa1.svg": "/sjaga003.github.io/cutiehack2020/static/media/logo.103b5fa1.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.7be6d022.js",
+    "static/css/2.95456d05.chunk.css",
+    "static/js/2.2092b8d1.chunk.js",
+    "static/css/main.544f1867.chunk.css",
+    "static/js/main.438776c5.chunk.js"
+  ]
+}
