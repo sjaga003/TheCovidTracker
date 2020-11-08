@@ -152,7 +152,7 @@ main {
   color: white;
   border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 2, 0.2) 0px 5px 30px -15px;
-  margin-top: -8rem !important;
+  margin-top: -8rem;
   background: white;
   justify-content: flex-start;
   flex-direction: column;
@@ -206,12 +206,20 @@ main {
   .chart-title {
     margin: 0;
   }
+  .main {
+    user-select: none;
+  }
 }
 
 @media only screen and (max-width: 600px) {
   .chart-area {
-    width: 25rem;
+    width: 22rem;
     height: 15rem;
     padding: 1rem;
+    margin-top: -5rem;
+  }
+
+  .main {
+    user-select: none;
   }
 }
