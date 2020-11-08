@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/sjaga003.github.io/cutiehack2020/static/css/main.2ed5957b.chunk.css",
+    "main.css": "/sjaga003.github.io/cutiehack2020/static/css/main.88020a14.chunk.css",
     "main.js": "/sjaga003.github.io/cutiehack2020/static/js/main.fa562e11.chunk.js",
     "main.js.map": "/sjaga003.github.io/cutiehack2020/static/js/main.fa562e11.chunk.js.map",
     "runtime-main.js": "/sjaga003.github.io/cutiehack2020/static/js/runtime-main.44da8970.js",
@@ -12,14 +12,14 @@
     "static/js/3.074ace0c.chunk.js.map": "/sjaga003.github.io/cutiehack2020/static/js/3.074ace0c.chunk.js.map",
     "index.html": "/sjaga003.github.io/cutiehack2020/index.html",
     "static/css/2.95456d05.chunk.css.map": "/sjaga003.github.io/cutiehack2020/static/css/2.95456d05.chunk.css.map",
-    "static/css/main.2ed5957b.chunk.css.map": "/sjaga003.github.io/cutiehack2020/static/css/main.2ed5957b.chunk.css.map",
+    "static/css/main.88020a14.chunk.css.map": "/sjaga003.github.io/cutiehack2020/static/css/main.88020a14.chunk.css.map",
     "static/js/2.850b4fcd.chunk.js.LICENSE.txt": "/sjaga003.github.io/cutiehack2020/static/js/2.850b4fcd.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.44da8970.js",
     "static/css/2.95456d05.chunk.css",
     "static/js/2.850b4fcd.chunk.js",
-    "static/css/main.2ed5957b.chunk.css",
+    "static/css/main.88020a14.chunk.css",
     "static/js/main.fa562e11.chunk.js"
   ]
 }
