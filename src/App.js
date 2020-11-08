@@ -13,7 +13,7 @@ function App() {
     let today = new Date();
     return today.setDate(today.getDate() - 1);
   });
-  const [calendarVisible, setCalendarVisible] = useState(false);
+  const [calendarVisible, setCalendarVisible] = useState('none');
 
   const fetchFromApi = async () => {
     const data = await fetch('https://api.covidtracking.com/v1/us/daily.json');

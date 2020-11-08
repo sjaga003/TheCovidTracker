@@ -113,6 +113,11 @@
 
 .date-moment:hover {
   cursor: pointer;
+  color: var(--accent-color);
+}
+
+.date-moment:hover svg {
+  fill: var(--accent-color);
 }
 
 .date-moment:hover .calendar {
