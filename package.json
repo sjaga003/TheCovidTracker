@@ -1,6 +1,6 @@
 {
-  "homepage": "sjaga003.github.io/cutiehack2020",
-  "name": "cutiehack2020",
+  "homepage": "sjaga003.github.io/TheCovidTracker",
+  "name": "TheCovidTracker",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
