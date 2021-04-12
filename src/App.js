@@ -11,7 +11,7 @@ import 'react-datepicker/dist/react-datepicker.css';
 function App() {
   const [covidData, setCovidData] = useState({});
   const [startDate, setStartDate] = useState(() => {
-    let today = new Date();
+    let today = new Date('03/7/2021');
     return today.setDate(today.getDate() - 1);
   });
   const [calendarVisible, setCalendarVisible] = useState('none');
@@ -68,10 +68,7 @@ function App() {
 
   const isValidDate = (date) => {
     let today = new Date();
-    if (
-      date > new Date('03/07/2020') &&
-      date < today.setDate(today.getDate() - 1)
-    ) {
+    if (date > new Date('03/07/2020') && date < new Date('03/7/2021')) {
       return date;
     }
   };
@@ -214,6 +211,7 @@ function App() {
           </div>
         </section>
         <section className="footer">
+          <span>This API is deprecated as of March 7th, 2021</span>
           <span className="footer-data">
             {' '}
             <svg
@@ -232,6 +230,7 @@ function App() {
             </svg>
             &nbsp;Made by Suhas Jagannath
           </span>
+
           <span className="footer-github">
             Check it out on{' '}
             <a href="https://github.com/sjaga003/cutiehack2020">Github</a>
